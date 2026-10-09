@@ -1,0 +1,3 @@
+const copyButton=document.getElementById('copy-email');
+copyButton.addEventListener('click',async()=>{const status=document.getElementById('copy-status');try{await navigator.clipboard.writeText('adityaborkar860@gmail.com');status.textContent='Email copied. Ready when you are.';copyButton.textContent='Copied ✓';setTimeout(()=>copyButton.textContent='Copy email',2500);}catch{status.textContent='Select the email address above to copy it, or click it to open your email app.';}});
+fetch('benchmark-results.json').then(r=>{if(!r.ok)throw Error('Not available');return r.json();}).then(r=>{document.getElementById('p95').textContent=r.enqueue_p95_ms+' ms';}).catch(()=>{document.getElementById('p95').textContent='See benchmark';});
